@@ -1,6 +1,21 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+import Highlights from '../components/Highlights';
+import LazyLoad from 'react-lazyload';
 
 const Home = () => {
+
+  useEffect(() => {
+    document.title = "Home - Tallinn University HCI Hub";
+  }, []);
+
+  const data = [
+    { event: 'Upcoming Events', description: 'Stay updated on the latest events in the field of HCI.' },
+    { event: 'Featured Speakers', description: 'Learn from industry experts and thought leaders.' },
+    { event: 'Meetup Rooms', description: 'Connect with like-minded individuals in our meetup spaces.' },
+    { event: 'Networking Opportunities', description: 'Expand your network within the HCI community.' },
+    { event: 'Mentoring Program', description: 'Engage in mentorship to enhance your HCI journey.' },
+    { event: 'Hub Blog', description: 'Explore insightful articles and updates in our blog section.' },
+  ];
   return (
     <>
       <section id="about-us">
@@ -13,66 +28,13 @@ const Home = () => {
           <p>Our diverse community includes students, researchers, industry professionals, and anyone passionate about HCI. Whether you're just starting your journey in HCI or are an experienced practitioner, there's a place for you in our hub.</p>
 
           <p>Join us in creating a dynamic environment where ideas are exchanged, skills are honed, and meaningful connections are made. Together, let's push the boundaries of HCI and make a positive impact on the world.</p>
-
-          {/* <img src="../smartworks-coworking-cW4lLTavU80-unsplash.jpg" alt="About Us Image" style="max-width: 100%; height: auto;" /> */}
+          <LazyLoad height={200} once>
+            <img src="./smartworks-coworking-cW4lLTavU80-unsplash.jpg" alt="About Us Image" style={{ maxWidth: '100%', height: 'auto' }} />
+          </LazyLoad>
         </div>
       </section>
 
-
-      <section id="highlights">
-        <div className="index-container">
-          <h2>Highlights</h2>
-
-          <div className="highlight">
-            <div className="highlight-content">
-              <h3>Upcoming Events</h3>
-              <p>Stay updated on the latest events in the field of HCI.</p>
-            </div>
-
-          </div>
-
-          <div className="highlight">
-            <div className="highlight-content">
-              <h3>Featured Speakers</h3>
-              <p>Learn from industry experts and thought leaders.</p>
-            </div>
-
-          </div>
-
-          <div className="highlight">
-            <div className="highlight-content">
-              <h3>Meetup Rooms</h3>
-              <p>Connect with like-minded individuals in our meetup spaces.</p>
-            </div>
-
-          </div>
-
-          <div className="highlight">
-            <div className="highlight-content">
-              <h3>Networking Opportunities</h3>
-              <p>Expand your network within the HCI community.</p>
-            </div>
-
-          </div>
-
-          <div className="highlight">
-            <div className="highlight-content">
-              <h3>Mentoring Program</h3>
-              <p>Engage in mentorship to enhance your HCI journey.</p>
-            </div>
-
-          </div>
-
-          <div className="highlight">
-            <div className="highlight-content">
-              <h3>Hub Blog</h3>
-              <p>Explore insightful articles and updates in our blog section.</p>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
+      <Highlights data={data} />
     </>
   )
 }
