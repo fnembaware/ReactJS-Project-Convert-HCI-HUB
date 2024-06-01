@@ -22,12 +22,29 @@
     color: #535bf2;
   } */
 
-  body {
+  /* body {
     margin: 0;
     padding: 0;
     display: flexbox;
     min-width: 320px;
     min-height: 100vh;
+  }
+  nav ul li a{
+    margin-right: 20px;
+    text-decoration: none;
+    font-size: 20px;
+  }
+
+  nav ul li a.active{
+    font-weight: bold;
+    font-size: 20px;
+    color:black;
+  } */
+
+  .active{
+    font-weight: bold;
+    font-size: 20px;
+    color:black;
   }
 
   /* h1 {
